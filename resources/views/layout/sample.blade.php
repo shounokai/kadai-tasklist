@@ -7,14 +7,26 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
    </head> 
    <body>
-       @if(isset($errors))
+       @if(count($errors)>0)
        <ul class="alert alert-danger" role="alert">
           @foreach($errors->all() as $error)
               <li>{{$error}}</li>
          @endforeach
        </ul>
        @endif
-       <h1 class="text-center mt-4 mb-4">TASKLIST</h1>
+       <nav class="navbar navbar-expand-sm navbar-light bg-light">
+           <a href="#" class="navbar-brand">TASKLIST</a>
+           <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
+                <span class="navbar-toggler-icon"></span>
+           </button>
+           <div class="collapse navbar-collapse" id="nav-bar">
+               <ul class="navbar-nav mr-auto"></ul>
+               <ul class="navbar-nav">
+                   <li class="nav-item">{!! link_to_route("tasks.create","タスクの作成",[],["class"=>"nav-link"]) !!}</li>
+               </ul>
+           </div>
+       </nav>
+       
         <div class="container">
             @yield("content")
         </div>

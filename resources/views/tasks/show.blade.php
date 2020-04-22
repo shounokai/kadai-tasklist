@@ -7,7 +7,7 @@
             <li>{{$task->status}}</li>
         </ul>
         
-        {!! link_to_route("tasks.create","タスクの作成",[],["class"=>"btn btn-primary"]) !!}
+        {!! link_to_route("tasks.edit","タスクの編集",["id"=>$task->id],["class"=>"btn btn-success"]) !!}
         <p></p>
         {!! Form::model($task,["route"=>["tasks.destroy",$task->id],"method"=>"delete"]) !!}
             {!!Form::submit("タスク削除",["class"=>"btn btn-danger"]) !!}
