@@ -7,6 +7,13 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
    </head> 
    <body>
+       @if(isset($errors))
+       <ul class="alert alert-danger" role="alert">
+          @foreach($errors->all() as $error)
+              <li>{{$error}}</li>
+         @endforeach
+       </ul>
+       @endif
        <h1 class="text-center mt-4 mb-4">TASKLIST</h1>
         <div class="container">
             @yield("content")

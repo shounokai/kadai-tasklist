@@ -2,7 +2,11 @@
 @section("content")
     <div class="text-center">
         <h2 class="mb-4">タスク{{$task->id}}</h2>
-        <p>{{$task->content}}</p>
+        <ul class="list-unstyled">
+            <li>{{$task->content}}</li>
+            <li>{{$task->status}}</li>
+        </ul>
+        
         {!! link_to_route("tasks.create","タスクの作成",[],["class"=>"btn btn-primary"]) !!}
         <p></p>
         {!! Form::model($task,["route"=>["tasks.destroy",$task->id],"method"=>"delete"]) !!}

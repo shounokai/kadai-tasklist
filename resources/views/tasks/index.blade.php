@@ -4,7 +4,10 @@
         <h2>タスク一覧</h2>
         @if(count($tasks)>0)
             @foreach($tasks as $task)
-             <p class="mt-3">{!! link_to_route("tasks.show",$task->content,["id"=>$task->id]) !!}</p>
+            <ul class="list-unstyled">
+                 <li class="mt-3">{!! link_to_route("tasks.show",$task->content,["id"=>$task->id]) !!}</li>
+                 <li>{{$task->status}}</li>
+             </ul>
             @endforeach
         @else
             <div class="alert alert-danger" role="alert">タスクはありません</div>
